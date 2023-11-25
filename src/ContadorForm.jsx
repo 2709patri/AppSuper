@@ -1,11 +1,7 @@
-// ContadorForm.js
-import React, { useState } from 'react';
-
 function ContadorForm({ alAgregar }) {
   const [nombre, setNombre] = useState('');
   const [marca, setMarca] = useState('');
-  const [cantidad, setCantidad] = useState(0);
-  const [unidad, setUnidad] = useState('unidad'); 
+  const [unidad, setUnidad] = useState('unidad'); // Unidad predeterminada
 
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
@@ -13,10 +9,6 @@ function ContadorForm({ alAgregar }) {
 
   const handleMarcaChange = (event) => {
     setMarca(event.target.value);
-  };
-
-  const handleCantidadChange = (event) => {
-    setCantidad(event.target.value);
   };
 
   const handleUnidadChange = (event) => {
@@ -28,13 +20,12 @@ function ContadorForm({ alAgregar }) {
       alAgregar({
         nombre,
         marca,
-        cantidad,
         unidad,
+        cantidad: 0, // Cantidad inicial en 0
       });
       setNombre('');
       setMarca('');
-      setCantidad(0);
-      setUnidad('unidad');
+      setUnidad('unidad'); // Restablecer la unidad predeterminada
     }
     evento.preventDefault();
   };
@@ -42,40 +33,19 @@ function ContadorForm({ alAgregar }) {
   return (
     <form onSubmit={agregar}>
       <div>
-        <input
-          type="text"
-          value={nombre}
-          onChange={handleNombreChange}
-          placeholder="Nombre"
-        />
+        <input type="text" value={nombre} onChange={handleNombreChange} placeholder="Nombre" />
       </div>
       <div>
-        <input
-          type="text"
-          value={marca}
-          onChange={handleMarcaChange}
-          placeholder="Característica o Marca"
-        />
+        <input type="text" value={marca} onChange={handleMarcaChange} placeholder="Marca" />
       </div>
       <div>
-        <label>
-          Cantidad:
-          <input
-            type="number"
-            value={cantidad}
-            onChange={handleCantidadChange}
-            placeholder="Cantidad"
-          />
-        </label>
         <select value={unidad} onChange={handleUnidadChange}>
           <option value="unidad">Unidad</option>
-          <option value="kilo">Kg.</option>
-          <option value="litro">Lt.</option>
+          <option value="kilo">Kilo</option>
+          <option value="litro">Litro</option>
         </select>
       </div>
       <button type="submit">Agregar</button>
     </form>
   );
 }
-
-export default ContadorForm;
