@@ -1,4 +1,5 @@
-import { useState } from 'react';
+// App.js
+import React, { useState } from 'react';
 import ContadorForm from './ContadorForm';
 import ContadorList from './ContadorList';
 import './App.css';
@@ -10,9 +11,8 @@ function App() {
   const [contadores, setContadores] = useState(datoIniciales);
 
   function agregar(item) {
-    const nuevo = { id: proximoID, ...item, cantidad: 0 };
-    setContadores(prevContadores => [...prevContadores, nuevo]);
-    setProximoID(proximoID + 1);
+    setContadores(prevContadores => [...prevContadores, { id: proximoID, ...item }]);
+    setProximoID(id => id + 1);
   }
 
   function sumar(id) {
@@ -35,13 +35,11 @@ function App() {
   }
 
   return (
-    <>
-      <main>
-        <h1>LISTA DE COMPRAS</h1>
-        <ContadorForm alAgregar={agregar} />
-        <ContadorList contadores={contadores} alSumar={sumar} alRestar={restar} alBorrar={borrar} />
-      </main>
-    </>
+    <main>
+      <h1>LA LISTA DEL SUPER</h1>
+      <ContadorForm alAgregar={agregar} />
+      <ContadorList contadores={contadores} alSumar={sumar} alRestar={restar} alBorrar={borrar} />
+    </main>
   );
 }
 
