@@ -1,3 +1,5 @@
+// ContadorList.js
+import React from 'react';
 import ContadorItem from './ContadorItem';
 
 function ContadorList({ contadores, alSumar, alRestar, alBorrar }) {
@@ -17,4 +19,3 @@ function ContadorList({ contadores, alSumar, alRestar, alBorrar }) {
 }
 
 export default ContadorList;
-
