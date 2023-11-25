@@ -1,3 +1,6 @@
+//contenedor ContenedorForm
+import React, { useState } from 'react';
+
 function ContadorForm({ alAgregar }) {
   const [nombre, setNombre] = useState('');
   const [marca, setMarca] = useState('');
@@ -49,3 +52,5 @@ function ContadorForm({ alAgregar }) {
     </form>
   );
 }
+
+export default ContadorForm;

@@ -1,5 +1,4 @@
-// ContadorItem.js
-import React from 'react';
+import React, { useState } from 'react';
 
 function ContadorItem({ contador, alSumar, alRestar, alBorrar }) {
   const { id, nombre, marca, cantidad, unidad } = contador;
@@ -21,7 +20,7 @@ function ContadorItem({ contador, alSumar, alRestar, alBorrar }) {
       <div>
         <span>{nombre}</span>
         {marca && <span> - {marca}</span>}
-        {cantidad > 0 && <span> - {cantidad} {unidad}</span>}
+       
       </div>
       <div className="botones">
         <span>{cantidad} {unidad}</span>
@@ -34,4 +33,3 @@ function ContadorItem({ contador, alSumar, alRestar, alBorrar }) {
 }
 
 export default ContadorItem;
-
